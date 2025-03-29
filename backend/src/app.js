@@ -57,6 +57,45 @@ app.put("/updateitem", (req, res) => {
   res.send("updated Successfully");
 });
 
+app.put("/updateitem/:id", async (req, res) => {
+  const productId = req.params.id;
+  const { title, price, image, description, OfferPrice } = req.body;
+
+  try {
+    const updatedProduct = await userSchmea.findByIdAndUpdate(
+      productId,
+      {
+        title,
+        price,
+        image,
+        description,
+        OfferPrice, // Final discounted price can be calculated again, if needed
+      },
+      { new: true } // This ensures the updated document is returned
+    );
+
+    if (!updatedProduct) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    res.json({ message: "Product updated successfully", data: updatedProduct });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something went wrong", error: error.message });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 db().then(() => {
   console.log("Database connected successfully");
   app.listen(port, hostName, () => {
