@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* margin-top: 20px; */
+  align-items: center;
+  height: 100vh;
+}
+button {
+  background-color: aquamarine;
+  color: black;
+  font-size: 1rem;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px red;
+}
+button:hover {
+  background-color: green;
+  color: white;
+}
+
+h1 {
+  color: red;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+h1:hover {
+  color: rgb(9, 75, 75);
+}
